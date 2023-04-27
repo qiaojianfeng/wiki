@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'FENG',
+  tagline: 'Before you quit, Try',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -28,8 +28,8 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh-Hans',
+    locales: ['en','zh-Hans'],
   },
 
   presets: [
@@ -52,6 +52,7 @@ const config = {
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
+          
           customCss: require.resolve('./src/css/custom.css'),
         },
       }),
@@ -63,8 +64,14 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      // colorMode: {
+      //   defaultMode: 'dark',
+      // },
+      colorMode: {
+        defaultMode:'dark'
+      },
       navbar: {
-        title: 'My Site',
+        title: 'OH!Feng',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
@@ -74,11 +81,11 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: '文档',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/blog', label: '日志', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/qiaojianfeng',
             label: 'GitHub',
             position: 'right',
           },
@@ -127,7 +134,13 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        // logo: {
+        //   alt: 'Meta 开源图标',
+        //   src: 'img/meta_oss_logo.png',
+        //   width: 160,
+        //   height: 51,
+        // },
+        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.<br/>晋ICP备16005245号-5`,
       },
       prism: {
         theme: lightCodeTheme,
