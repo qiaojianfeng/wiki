@@ -43,7 +43,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/qiaojianfeng/wiki/edit/main/',
         },
         blog: {
           showReadingTime: true,
@@ -51,13 +51,13 @@ const config = {
           // Remove this to remove the "edit this page" links.
           
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/qiaojianfeng/wiki/edit/main',
             feedOptions: {
               type: 'all',
-              copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`,
+              copyright: `Copyright © ${new Date().getFullYear()} QiaoJianFeng, Inc.`,
             },
             blogSidebarCount: 'ALL',
-            blogSidebarTitle: '最近文章',
+            blogSidebarTitle: '全部博文',
         },
         theme: {
           
@@ -94,10 +94,11 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Docs',
+            label: '文档',
           },
-          { to: '/blog', label: 'Blog', position: 'left' },
-          { to: 'showcase', label: 'Showcase', position: 'left' },
+          { to: '/blog', label: '博客', position: 'left' },
+          { to: 'showcase', label: '分享', position: 'left' },
+          { to: 'showcase', label: '关于我', position: 'left' },
           // right
           // {
           //   type: 'localeDropdown',

@@ -4,6 +4,7 @@ date: 2019-07-05 18:14:06
 ---
 
 > Git和GitHub有啥关系？
+<!--truncate-->
 
 答：Git是版本控制工具，GitHub是基于Git工具流的一个项目托管平台 ![](https://upload-images.jianshu.io/upload_images/226662-6e184a8462131352.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/583/format/webp) 顺便提一下这里只温习一下Git的相关知识，关于SVN（集中式管理系统）这里不做对比也不去做详细的描述。具体了解两者的区别可以去这里：[https://www.shiyanlou.com/questions/2999/  ](https://www.shiyanlou.com/questions/2999/)
 

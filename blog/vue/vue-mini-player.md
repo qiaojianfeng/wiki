@@ -7,6 +7,7 @@ vue-mini-player
 ===============
 
 > 基于 Vue 的一个轻量级视频播放组件，适配 PC 和移动端
+<!--truncate-->
 
 ![avatar](https://webweifeng.github.io/vue-mini-player/preview.jpg)
 
