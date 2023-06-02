@@ -24,4 +24,14 @@ jobs:
 
     - name: 执行构建
       run: |
-        pnpm run build
+        npm run build
+        
+    - name: 部署到腾讯云服务器
+      uses: easingthemes/ssh-deploy@main
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+        ARGS: "-avzr --delete"
+        SOURCE: "./build/"
+        REMOTE_HOST: ${{ secrets.SERVER_HOST }}
+        REMOTE_USER: ${{ secrets.SERVER_USER }}
+        TARGET: "/www/wwwroot/wiki.q-jf.cn/"
