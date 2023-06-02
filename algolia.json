@@ -1,10 +1,10 @@
 {
-  "index_name": "docusaurus-2",
+  "index_name": "oh!feng",
   "start_urls": [
-    "https://docusaurus.io/"
+    "https://wiki.q-jf.cn/"
   ],
   "sitemap_urls": [
-    "https://docusaurus.io/sitemap.xml"
+    "https://wiki.q-jf.cn/sitemap.xml"
   ],
   "sitemap_alternate_links": true,
   "stop_urls": [
