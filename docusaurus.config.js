@@ -1,10 +1,11 @@
-// @ts-check
+// @ts-nocheck
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
+
 const config = {
   title: 'FENG',
   tagline: 'Before you quit, Try',
@@ -63,6 +64,7 @@ const config = {
           
           customCss: require.resolve('./src/css/custom.css'),
         },
+        sitemap: { changefreq: "weekly", priority: 0.5, ignorePatterns: ["/tags/**"], filename: "sitemap.xml"}
       }),
     ],
   ],
@@ -79,7 +81,7 @@ const config = {
       },
       announcementBar: {
         id: 'announcementBar-2', // Increment on change
-        content: `⭐️ If you like Docusaurus, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/docusaurus">GitHub</a> `,
+        content: `⭐️ If you like OH!Feng, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/qiaojianfeng">GitHub</a> `,
       },
       navbar: {
         title: 'OH!Feng',
@@ -180,3 +182,6 @@ const config = {
 };
 
 module.exports = config;
+
+
+ 
