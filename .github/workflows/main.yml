@@ -1,0 +1,27 @@
+name: Docusaurus-Wiki持续集成
+
+on: 
+  push:
+    branches:
+      - main
+      
+jobs:
+  build: 
+    runs-on: ubuntu-latest 
+
+    steps:
+    - name: 检出仓库代码
+      uses: actions/checkout@main
+
+    - name: 安装Node.js
+      uses: actions/setup-node@master
+      with:
+        node-version: "18"
+
+    - name: 安装依赖
+      run: |
+        npm install
+
+    - name: 执行构建
+      run: |
+        pnpm run build
