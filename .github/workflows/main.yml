@@ -35,3 +35,15 @@ jobs:
         REMOTE_HOST: ${{ secrets.SERVER_HOST }}
         REMOTE_USER: ${{ secrets.SERVER_USER }}
         TARGET: "/www/wwwroot/wiki.q-jf.cn/"
+        
+    - name: 获取 algolia.json 内容
+      id: algolia_config
+      run: echo "::set-output name=config::$(cat algolia.json | jq -r tostring)"
+      
+    - name: 推送文档记录到 Algolia
+      uses: signcl/docsearch-scraper-action@master
+      env:
+          APPLICATION_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          API_KEY: ${{ secrets.ALGOLIA_APP_KEY }}
+          CONFIG: ${{ steps.algolia_config.outputs.config }}
+      
