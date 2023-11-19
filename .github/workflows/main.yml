@@ -34,7 +34,7 @@ jobs:
         SOURCE: "./build/"
         REMOTE_HOST: ${{ secrets.SERVER_HOST }}
         REMOTE_USER: ${{ secrets.SERVER_USER }}
-        TARGET: "/www/wwwroot/wiki.q-jf.cn/"
+        TARGET: "/www/wwwroot/q-jf.cn"
         
     - name: 获取 algolia.json 内容
       id: algolia_config
