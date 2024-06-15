@@ -163,7 +163,7 @@ const config = {
         //   width: 160,
         //   height: 51,
         // },
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.<br/>晋ICP备16005245号-5`,
+        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.<br/><a href="https://beian.miit.gov.cn/" target="_blank">晋ICP备16005245号-5</a>`,
       },
       prism: {
         theme: lightCodeTheme,
