@@ -1,0 +1,121 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { timeline, hobbies, contacts } from '../../data/about';
+---
+
+<Layout title="关于我" description="了解更多关于 SOLO Coder 的故事">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Profile Header -->
+    <div class="text-center mb-16">
+      <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary-500 to-accent-purple flex items-center justify-center text-5xl">
+        👨‍💻
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">关于我</h1>
+      <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+        一个热爱技术与投资的独立开发者，相信代码可以改变世界，数据可以洞察未来
+      </p>
+    </div>
+
+    <!-- Introduction -->
+    <section class="mb-16">
+      <div class="pixel-card p-8">
+        <h2 class="text-2xl font-bold font-mono text-white mb-6 flex items-center">
+          <span class="text-2xl mr-3 geek-text">👋</span>
+          自我介绍
+        </h2>
+        <div class="space-y-4 text-gray-300 leading-relaxed font-mono">
+          <p>
+            你好！我是 <span class="geek-text font-bold">SOLO Coder</span>，一名热爱编程的独立开发者。
+            从 2020 年开始踏上编程之路，我逐渐从前端开发扩展到全栈领域，
+            享受用代码创造产品的过程。
+          </p>
+          <p>
+            除了编程，我对投资也有浓厚的兴趣。从 2023 年开始系统学习投资知识，
+            研究股票市场和价值投资理念。我相信技术和投资有很多共通之处：
+            都需要持续学习、理性分析和长期积累。
+          </p>
+          <p>
+            创建这个站点的初衷是记录自己的成长轨迹，同时分享一些有价值的内容。
+            希望能与志同道合的朋友交流，共同进步。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hobbies -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold font-mono text-white mb-6 flex items-center">
+        <span class="text-2xl mr-3 geek-text">🎯</span>
+        兴趣爱好
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {hobbies.map((hobby, index) => (
+          <div class="pixel-card p-6 flex items-start space-x-4 animate-fade-in-pixel" style={`animation-delay: ${index * 0.1}s`}>
+            <span class="text-3xl geek-text">{hobby.icon}</span>
+            <div>
+              <h3 class="text-lg font-bold font-mono text-white mb-1">{hobby.name}</h3>
+              <p class="text-gray-400 text-sm font-mono">{hobby.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold font-mono text-white mb-6 flex items-center">
+        <span class="text-2xl mr-3 geek-text">📅</span>
+        成长历程
+      </h2>
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-8 top-0 bottom-0 w-2 bg-primary-500 border-r-2 border-b-2 border-primary-700"></div>
+        
+        <div class="space-y-8">
+          {timeline.map((item, index) => (
+            <div class="relative flex items-start animate-fade-in-pixel" style={`animation-delay: ${index * 0.1}s`}>
+              <div class="absolute left-6 w-6 h-6 bg-gray-900 border-2 border-primary-500 z-10"></div>
+              <div class="ml-16 pixel-card p-6 flex-1">
+                <div class="flex items-center space-x-3 mb-2">
+                  <span class="text-2xl geek-text">{item.icon}</span>
+                  <span class="geek-text font-mono font-bold">{item.year}</span>
+                </div>
+                <h3 class="text-lg font-bold font-mono text-white mb-2">{item.title}</h3>
+                <p class="text-gray-400 text-sm font-mono">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section>
+      <h2 class="text-2xl font-bold font-mono text-white mb-6 flex items-center">
+        <span class="text-2xl mr-3 geek-text">📬</span>
+        联系方式
+      </h2>
+      <div class="pixel-card p-8">
+        <p class="text-gray-400 mb-6 text-center font-mono">
+          如果你有任何问题或想法，欢迎通过以下方式联系我
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          {contacts.map((contact, index) => (
+            <a 
+              href={contact.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="pixel-button bg-gray-900 text-primary-400 hover:bg-gray-800 px-6 py-3 animate-fade-in-pixel"
+              style={`animation-delay: ${index * 0.1}s`}
+            >
+              <span class="flex items-center space-x-2">
+                <span set:html={contact.icon} />
+                <span class="font-mono">{contact.name}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import articlesData from '../../content/investment/articles.json';
+import { categoryColors, portfolio } from '../../data/investment';
+
+const { articles } = articlesData;
+const sortedArticles = articles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const categories = [...new Set(articles.map(a => a.category))];
+---
+
+<Layout title="投资专区" description="炒股心得、投资策略、市场分析">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="section-title">投资专区</h1>
+      <p class="text-gray-400 max-w-2xl mx-auto">
+        分享投资路上的心得体会、市场分析和策略思考
+      </p>
+    </div>
+
+    <!-- Portfolio Overview -->
+    <div class="pixel-card p-6 mb-12">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-xl font-bold font-mono text-white flex items-center">
+          <span class="text-2xl mr-2 geek-text">📊</span>
+          投资组合概览（示例）
+        </h2>
+        <span class="text-xs font-mono text-gray-500">数据仅供参考</span>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div class="text-center">
+          <div class="text-sm font-mono text-gray-400 mb-1">总资产</div>
+          <div class="text-3xl font-bold font-mono text-primary-400">
+            ¥{portfolio.totalValue.toLocaleString()}
+          </div>
+        </div>
+        <div class="text-center">
+          <div class="text-sm font-mono text-gray-400 mb-1">日涨跌</div>
+          <div class={`text-3xl font-bold font-mono ${portfolio.dayChange >= 0 ? 'text-accent-green' : 'text-accent-red'}`}>
+            {portfolio.dayChange >= 0 ? '+' : ''}{portfolio.dayChange.toLocaleString()}
+          </div>
+        </div>
+        <div class="text-center">
+          <div class="text-sm font-mono text-gray-400 mb-1">涨跌幅</div>
+          <div class={`text-3xl font-bold font-mono ${portfolio.dayChangePercent >= 0 ? 'text-accent-green' : 'text-accent-red'}`}>
+            {portfolio.dayChangePercent >= 0 ? '+' : ''}{portfolio.dayChangePercent}%
+          </div>
+        </div>
+      </div>
+      
+      <!-- Allocation Bar -->
+      <div class="space-y-3">
+        {portfolio.positions.map(pos => (
+          <div class="flex items-center">
+            <div class="w-24 text-sm font-mono text-gray-400">{pos.name}</div>
+            <div class="flex-1 mx-4">
+              <div class="w-full bg-gray-800 border-2 border-primary-500 h-2">
+                <div 
+                  class="bg-primary-500 h-2 transition-all duration-500"
+                  style={`width: ${pos.allocation}%`}
+                ></div>
+              </div>
+            </div>
+            <div class="w-20 text-right text-sm font-mono text-white">{pos.allocation}%</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="flex flex-wrap justify-center gap-2 mb-8">
+      <span class="tag cursor-pointer hover:bg-primary-500/30 transition-colors">全部</span>
+      {categories.map(cat => (
+        <span class={`tag cursor-pointer hover:bg-primary-500/30 transition-colors ${categoryColors[cat] || ''}`}>
+          {cat}
+        </span>
+      ))}
+    </div>
+
+    <!-- Articles Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sortedArticles.map((article, index) => (
+        <article class="pixel-card overflow-hidden group animate-fade-in-pixel" style={`animation-delay: ${index * 0.1}s`}>
+          <a href={`/investment/${article.id}`} class="block">
+            <div class="p-6">
+              <!-- Meta -->
+              <div class="flex items-center justify-between mb-3">
+                <span class={`tag text-xs ${categoryColors[article.category] || ''}`}>
+                  {article.category}
+                </span>
+                <div class="flex items-center text-sm font-mono text-gray-400">
+                  <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-linejoin="square" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  {new Date(article.date).toLocaleDateString('zh-CN')}
+                </div>
+              </div>
+              
+              <!-- Title -->
+              <h2 class="text-xl font-bold font-mono text-white mb-3 group-hover:text-primary-400 transition-colors line-clamp-2">
+                {article.title}
+              </h2>
+              
+              <!-- Description -->
+              <p class="text-gray-400 text-sm mb-4 line-clamp-2 font-mono">
+                {article.description}
+              </p>
+              
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2">
+                {article.tags.map(tag => (
+                  <span class="tag text-xs">{tag}</span>
+                ))}
+              </div>
+            </div>
+            
+            <!-- Read more -->
+            <div class="px-6 pb-6">
+              <span class="inline-flex items-center geek-text text-sm group-hover:translate-x-2 transition-transform font-mono">
+                阅读全文
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="square" stroke-linejoin="square" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="mt-12 p-4 glass rounded-lg">
+      <div class="flex items-start space-x-3">
+        <svg class="w-5 h-5 text-accent-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+        <div class="text-sm text-gray-400">
+          <strong class="text-gray-300">免责声明：</strong>
+          本页面所有内容仅为个人投资心得分享，不构成任何投资建议。股市有风险，投资需谨慎。
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,87 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// 读取所有文章
+const posts = await Astro.glob('../../content/coding/*.md');
+const sortedPosts = posts.sort((a, b) => 
+  new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
+);
+
+// 提取所有标签
+const allTags = [...new Set(posts.flatMap(post => post.frontmatter.tags || []))];
+---
+
+<Layout title="编程专栏" description="技术文章、教程、代码分享">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="section-title">编程专栏</h1>
+      <p class="text-gray-400 max-w-2xl mx-auto">
+        分享编程路上的学习心得、技术实践和代码片段
+      </p>
+    </div>
+
+    <!-- Tags -->
+    <div class="flex flex-wrap justify-center gap-2 mb-12">
+      <span class="tag cursor-pointer hover:bg-primary-500/30 transition-colors">全部</span>
+      {allTags.map(tag => (
+        <span class="tag cursor-pointer hover:bg-primary-500/30 transition-colors">{tag}</span>
+      ))}
+    </div>
+
+    <!-- Posts Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sortedPosts.map((post, index) => (
+        <article class="pixel-card overflow-hidden group animate-fade-in-pixel" style={`animation-delay: ${index * 0.1}s`}>
+          <a href={`/coding/${post.file.split('/').pop()?.replace('.md', '')}`} class="block">
+            <div class="p-6">
+              <!-- Date -->
+              <div class="flex items-center text-sm text-gray-400 mb-3 font-mono">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="square" stroke-linejoin="square" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {new Date(post.frontmatter.date).toLocaleDateString('zh-CN')}
+              </div>
+              
+              <!-- Title -->
+              <h2 class="text-xl font-bold font-mono text-white mb-3 group-hover:text-primary-400 transition-colors line-clamp-2">
+                {post.frontmatter.title}
+              </h2>
+              
+              <!-- Description -->
+              <p class="text-gray-400 text-sm mb-4 line-clamp-2 font-mono">
+                {post.frontmatter.description}
+              </p>
+              
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2">
+                {post.frontmatter.tags?.map((tag: string) => (
+                  <span class="tag text-xs">{tag}</span>
+                ))}
+              </div>
+            </div>
+            
+            <!-- Read more -->
+            <div class="px-6 pb-6">
+              <span class="inline-flex items-center geek-text text-sm group-hover:translate-x-2 transition-transform font-mono">
+                阅读更多
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="square" stroke-linejoin="square" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+
+    <!-- Empty state -->
+    {sortedPosts.length === 0 && (
+      <div class="text-center py-20">
+        <div class="text-6xl mb-4">📝</div>
+        <h3 class="text-xl font-semibold text-white mb-2">暂无文章</h3>
+        <p class="text-gray-400">敬请期待更多技术分享</p>
+      </div>
+    )}
+  </div>
+</Layout>

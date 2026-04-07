@@ -1,0 +1,128 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Feng.dev - 个人技术与投资分享站点' } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { path: '/', label: '主页' },
+  { path: '/coding', label: '编程' },
+  { path: '/projects', label: '项目' },
+  { path: '/resources', label: '资源' },
+  { path: '/investment', label: '投资' },
+  { path: '/about', label: '关于我' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>{title} | Feng.dev</title>
+</head>
+<body class="min-h-screen flex flex-col bg-cyber-grid">
+  <!-- Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0f]/95 border-b-2 border-[#66ffff]/30">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+         <a href="/" class="flex items-center gap-2 group">
+          <div class="w-6 h-6 border-2 border-[#ff00ff] flex items-center justify-center text-[#ff00ff] text-[10px] font-bold group-hover:bg-[#ff00ff]/10 transition-colors">
+            F
+          </div>
+          <span class="text-[#ff00ff] text-xs tracking-widest hidden sm:block">
+            FENG.DEV
+          </span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-6">
+          {navItems.map(item => (
+            <a 
+              href={item.path}
+              class={`text-xs uppercase tracking-widest transition-colors ${
+                currentPath === item.path || (item.path !== '/' && currentPath.startsWith(item.path)) 
+                  ? 'text-[#ff66ff]' 
+                  : 'text-[#66ffff]/70 hover:text-[#66ffff]'
+              }`}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+        
+        <!-- Mobile menu button -->
+        <button 
+          id="mobile-menu-btn"
+          class="md:hidden retro-btn text-[#66ffff] border-[#66ffff] p-2 text-xs"
+          aria-label="Toggle menu"
+        >
+          MENU
+        </button>
+      </div>
+      
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col space-y-2">
+          {navItems.map(item => (
+            <a 
+              href={item.path}
+              class={`px-4 py-3 cyber-card text-xs ${
+                currentPath === item.path || (item.path !== '/' && currentPath.startsWith(item.path)) 
+                  ? 'border-[#ff66ff] text-[#ff66ff]' 
+                  : 'text-[#66ffff]/70'
+              }`}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 pt-16">
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#0a0a0f]/95 border-t-2 border-[#66ffff]/30 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+        <div class="flex items-center space-x-2">
+          <span class="text-sm font-bold neon-text-cyan glitch" data-text="FENG.DEV">FENG.DEV</span>
+          <span class="text-[#66ffff]/50 text-xs">© {new Date().getFullYear()}</span>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="retro-btn text-[#66ffff] border-[#66ffff] p-2 text-xs">
+            GH
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="retro-btn text-[#ff66ff] border-[#ff66ff] p-2 text-xs">
+            TW
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

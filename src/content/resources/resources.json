@@ -1,0 +1,141 @@
+{
+  "categories": [
+    {
+      "id": "frontend",
+      "name": "前端开发",
+      "icon": "🎨",
+      "resources": [
+        {
+          "name": "MDN Web Docs",
+          "url": "https://developer.mozilla.org",
+          "description": "最权威的 Web 技术文档",
+          "tags": ["文档", "参考"]
+        },
+        {
+          "name": "Astro",
+          "url": "https://astro.build",
+          "description": "现代化的静态站点生成器",
+          "tags": ["框架", "静态站点"]
+        },
+        {
+          "name": "Tailwind CSS",
+          "url": "https://tailwindcss.com",
+          "description": "实用优先的 CSS 框架",
+          "tags": ["CSS", "框架"]
+        },
+        {
+          "name": "Vite",
+          "url": "https://vitejs.dev",
+          "description": "下一代前端构建工具",
+          "tags": ["构建工具", "开发环境"]
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "name": "后端开发",
+      "icon": "⚙️",
+      "resources": [
+        {
+          "name": "Node.js",
+          "url": "https://nodejs.org",
+          "description": "JavaScript 运行时环境",
+          "tags": ["运行时", "JavaScript"]
+        },
+        {
+          "name": "NestJS",
+          "url": "https://nestjs.com",
+          "description": "渐进式 Node.js 框架",
+          "tags": ["框架", "TypeScript"]
+        },
+        {
+          "name": "PostgreSQL",
+          "url": "https://www.postgresql.org",
+          "description": "强大的开源关系型数据库",
+          "tags": ["数据库", "SQL"]
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "name": "开发工具",
+      "icon": "🛠️",
+      "resources": [
+        {
+          "name": "VS Code",
+          "url": "https://code.visualstudio.com",
+          "description": "最流行的代码编辑器",
+          "tags": ["编辑器", "IDE"]
+        },
+        {
+          "name": "Git",
+          "url": "https://git-scm.com",
+          "description": "分布式版本控制系统",
+          "tags": ["版本控制", "工具"]
+        },
+        {
+          "name": "Docker",
+          "url": "https://www.docker.com",
+          "description": "容器化平台",
+          "tags": ["容器", "DevOps"]
+        },
+        {
+          "name": "Figma",
+          "url": "https://www.figma.com",
+          "description": "协作式界面设计工具",
+          "tags": ["设计", "UI/UX"]
+        }
+      ]
+    },
+    {
+      "id": "learning",
+      "name": "学习资源",
+      "icon": "📚",
+      "resources": [
+        {
+          "name": "freeCodeCamp",
+          "url": "https://www.freecodecamp.org",
+          "description": "免费的编程学习平台",
+          "tags": ["学习", "免费"]
+        },
+        {
+          "name": "JavaScript.info",
+          "url": "https://javascript.info",
+          "description": "现代 JavaScript 教程",
+          "tags": ["教程", "JavaScript"]
+        },
+        {
+          "name": "CSS-Tricks",
+          "url": "https://css-tricks.com",
+          "description": "CSS 技巧和教程",
+          "tags": ["CSS", "教程"]
+        }
+      ]
+    },
+    {
+      "id": "community",
+      "name": "技术社区",
+      "icon": "👥",
+      "resources": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com",
+          "description": "代码托管和协作平台",
+          "tags": ["开源", "协作"]
+        },
+        {
+          "name": "Stack Overflow",
+          "url": "https://stackoverflow.com",
+          "description": "程序员问答社区",
+          "tags": ["问答", "社区"]
+        },
+        {
+          "name": "Dev.to",
+          "url": "https://dev.to",
+          "description": "开发者社区和博客平台",
+          "tags": ["社区", "博客"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,391 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { skills, stats, featuredSections } from '../data/home';
+---
+
+<Layout title="主页">
+  <!-- Pixel Cars Background -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <!-- Car 1 -->
+    <div class="absolute top-20 left-0 animate-[drive-right_8s_linear_infinite]">
+      <div class="w-16 h-8 relative">
+        <div class="absolute top-2 left-2 w-12 h-4 bg-[#ff8844]"></div>
+        <div class="absolute top-0 left-4 w-8 h-2 bg-[#ff8844]"></div>
+        <div class="absolute bottom-0 left-2 w-2 h-2 bg-black"></div>
+        <div class="absolute bottom-0 right-2 w-2 h-2 bg-black"></div>
+        <div class="absolute top-3 right-1 w-1 h-1 bg-white animate-pulse"></div>
+      </div>
+    </div>
+    <!-- Car 2 -->
+    <div class="absolute top-40 right-0 animate-[drive-left_10s_linear_infinite]">
+      <div class="w-16 h-8 relative">
+        <div class="absolute top-2 left-2 w-12 h-4 bg-[#ff4444]"></div>
+        <div class="absolute top-0 left-4 w-8 h-2 bg-[#ff4444]"></div>
+        <div class="absolute bottom-0 left-2 w-2 h-2 bg-black"></div>
+        <div class="absolute bottom-0 right-2 w-2 h-2 bg-black"></div>
+        <div class="absolute top-3 left-1 w-1 h-1 bg-white animate-pulse"></div>
+      </div>
+    </div>
+    <!-- Car 3 -->
+    <div class="absolute top-60 left-0 animate-[drive-right_12s_linear_infinite]" style="animation-delay: 3s;">
+      <div class="w-16 h-8 relative">
+        <div class="absolute top-2 left-2 w-12 h-4 bg-[#ffaa44]"></div>
+        <div class="absolute top-0 left-4 w-8 h-2 bg-[#ffaa44]"></div>
+        <div class="absolute bottom-0 left-2 w-2 h-2 bg-black"></div>
+        <div class="absolute bottom-0 right-2 w-2 h-2 bg-black"></div>
+        <div class="absolute top-3 right-1 w-1 h-1 bg-white animate-pulse"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- System Monitor -->
+  <div class="fixed top-20 right-4 bg-[#111118] border-2 border-[#66ffff]/30 p-3 z-30 w-48">
+    <div class="text-xs text-[#66ffff] mb-2 flex items-center gap-2">
+      <span>◉</span>
+      <span>SYSTEM MONITOR</span>
+    </div>
+    <div class="space-y-2">
+      <div>
+        <div class="flex justify-between text-[10px] mb-1">
+          <span class="text-[#ff66ff]">CPU</span>
+          <span class="text-[#66ffff]">42%</span>
+        </div>
+        <div class="h-2 bg-[#1a1a2e] border border-[#66ffff]/30">
+          <div class="h-full bg-[#ff66ff] w-[42%]"></div>
+        </div>
+      </div>
+      <div>
+        <div class="flex justify-between text-[10px] mb-1">
+          <span class="text-[#66ffff]">MEM</span>
+          <span class="text-[#66ffff]">68%</span>
+        </div>
+        <div class="h-2 bg-[#1a1a2e] border border-[#66ffff]/30">
+          <div class="h-full bg-[#66ffff] w-[68%]"></div>
+        </div>
+      </div>
+      <div>
+        <div class="flex justify-between text-[10px] mb-1">
+          <span class="text-[#66ff66]">NET</span>
+          <span class="text-[#66ffff]">23%</span>
+        </div>
+        <div class="h-2 bg-[#1a1a2e] border border-[#66ffff]/30">
+          <div class="h-full bg-[#66ff66] w-[23%]"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pixel Character -->
+  <div class="fixed bottom-20 left-1/2 -translate-x-1/2 z-20 animate-float cursor-pointer group" id="pixel-char">
+    <div class="w-8 h-10 relative">
+      <!-- Head -->
+      <div class="absolute top-0 left-0 w-8 h-4 bg-[#ff4488] group-hover:bg-white transition-colors"></div>
+      <!-- Body -->
+      <div class="absolute top-4 left-2 w-4 h-4 bg-[#ff4488] group-hover:bg-white transition-colors"></div>
+      <!-- Legs -->
+      <div class="absolute top-8 left-1 w-2 h-2 bg-[#44aaff]"></div>
+      <div class="absolute top-8 left-5 w-2 h-2 bg-[#44aaff]"></div>
+      <!-- Eyes -->
+      <div class="absolute top-1 left-2 w-1 h-1 bg-black"></div>
+      <div class="absolute top-1 left-5 w-1 h-1 bg-black"></div>
+    </div>
+    <!-- Hover text -->
+    <div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+      <div class="text-[10px] text-white bg-black px-2 py-1 whitespace-nowrap">
+        Cyber Character
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <!-- Animated background elements -->
+    <div class="absolute top-1/4 left-10 w-2 h-2 bg-[#ff4488] animate-pulse"></div>
+    <div class="absolute top-1/3 right-20 w-2 h-2 bg-[#44aaff] animate-pulse" style="animation-delay: 0.5s;"></div>
+    <div class="absolute bottom-1/4 left-1/4 w-2 h-2 bg-[#ffaa44] animate-pulse" style="animation-delay: 1s;"></div>
+
+    <div class="container mx-auto max-w-6xl px-4 relative z-10">
+      <div class="flex flex-col items-center text-center">
+        <!-- System header -->
+        <div class="mb-8 px-4 py-2 border-2 border-[#66ffff] bg-[#66ffff]/10">
+          <span class="text-[#66ffff] text-xs tracking-widest">
+            [SYSTEM: ONLINE] [VER: 2.0.77]
+          </span>
+        </div>
+
+        <!-- Main title with glitch effect -->
+        <div class="mb-8">
+          <h1 
+            class="text-3xl md:text-5xl lg:text-6xl font-bold tracking-widest glitch"
+            data-text="FENG.DEV"
+            style="color: #66ffff;"
+          >
+            FENG.DEV
+          </h1>
+        </div>
+
+        <!-- Terminal-style subtitle -->
+        <div class="mb-8 max-w-2xl">
+          <div class="text-left bg-[#111118] border-2 border-[#66ffff]/30 p-4 text-xs">
+            <div class="text-[#66ffff]/50 mb-2">$ cat about.txt</div>
+            <div class="text-[#66ffff]">
+              <span>&gt; </span>
+              <span>FULL-STACK DEVELOPER</span>
+            </div>
+            <div class="text-[#ff66ff] mt-2">
+              <span>&gt; </span>
+              <span>REACT ECOSYSTEM SPECIALIST</span>
+            </div>
+            <div class="text-[#ffff66] mt-2">
+              <span>&gt; </span>
+              <span>STATUS: AVAILABLE FOR HIRE</span>
+              <span class="inline-block w-2 h-4 bg-[#ffff66] ml-1 animate-blink"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill bars -->
+        <div class="mb-10 w-full max-w-md">
+          <div class="text-xs text-[#66ffff]/50 mb-2">$ loading skills...</div>
+          {skills.map((skill) => (
+            <div class="mb-3">
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-[#66ffff]">{skill.name}</span>
+                <span class="text-[#ff66ff]">{skill.level}%</span>
+              </div>
+              <div class="cyber-progress">
+                <div
+                  class="cyber-progress-bar"
+                  style={`width: ${skill.level}%`}
+                ></div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/coding">
+            <button class="retro-btn text-[#ff66ff] border-[#ff66ff] hover:bg-[#ff66ff]/10">
+              [EXECUTE]
+            </button>
+          </a>
+          <a href="/projects">
+            <button class="retro-btn text-[#66ffff] border-[#66ffff] hover:bg-[#66ffff]/10">
+              [READ_LOG]
+            </button>
+          </a>
+        </div>
+
+        <!-- Stats row -->
+        <div class="mt-16 grid grid-cols-4 gap-4 md:gap-8">
+          {stats.map((stat) => (
+            <div class="text-center">
+              <div class="text-lg md:text-2xl font-bold text-[#ff66ff]">
+                {stat.value}
+              </div>
+              <div class="text-[10px] text-[#66ffff]/50 mt-1">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+      <div class="flex flex-col items-center gap-2 text-[#66ffff]/50">
+        <span class="text-[10px]">[SCROLL]</span>
+        <span class="text-lg">▼</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 md:py-24 border-t-2 border-[#66ffff]/20">
+    <div class="container mx-auto max-w-6xl px-4">
+      <div class="mb-12">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-[#ff66ff]">▶</span>
+          <span class="text-xs text-[#ff66ff]">$ ls -la /modules</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {featuredSections.map((section, index) => (
+          <a href={section.link}>
+            <div class="cyber-card group cursor-pointer h-full">
+              <div class="flex items-start gap-4">
+                <div class="p-3 border-2 border-[#66ffff]/50 text-[#66ffff]">
+                  <span class="text-2xl">{section.icon}</span>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-bold tracking-widest text-[#66ffff]">
+                      {section.title}
+                    </h3>
+                  </div>
+                  <p class="text-xs text-[#66ffff]/50">
+                    {section.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Game Section -->
+  <section class="py-16 md:py-24 border-t-2 border-[#66ffff]/20">
+    <div class="container mx-auto max-w-6xl px-4">
+      <div class="mb-12">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-[#ff66ff]">🎮</span>
+          <span class="text-xs text-[#ff66ff]">$ run game.exe</span>
+        </div>
+        <h2 class="section-title">互动游戏</h2>
+        <p class="text-xs text-[#66ffff]/50 mb-8">
+          点击像素角色进行互动，探索赛博朋克世界
+        </p>
+      </div>
+
+      <div class="bg-[#111118] border-2 border-[#66ffff]/30 p-6 md:p-8 relative overflow-hidden">
+        {/* Game instructions */}
+        <div class="mb-8">
+          <div class="text-xs text-[#66ffff] mb-4 flex items-center gap-2">
+            <span>🛡</span>
+            <span>GAME CONTROLS</span>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-[#1a1a2e] border-2 border-[#66ffff]/30 p-3 text-center">
+              <div class="text-[#ff66ff] font-bold mb-1">CLICK</div>
+              <div class="text-[10px] text-[#66ffff]/50">互动</div>
+            </div>
+            <div class="bg-[#1a1a2e] border-2 border-[#66ffff]/30 p-3 text-center">
+              <div class="text-[#ff66ff] font-bold mb-1">HOVER</div>
+              <div class="text-[10px] text-[#66ffff]/50">查看</div>
+            </div>
+            <div class="bg-[#1a1a2e] border-2 border-[#66ffff]/30 p-3 text-center">
+              <div class="text-[#ff66ff] font-bold mb-1">SCROLL</div>
+              <div class="text-[10px] text-[#66ffff]/50">探索</div>
+            </div>
+            <div class="bg-[#1a1a2e] border-2 border-[#66ffff]/30 p-3 text-center">
+              <div class="text-[#ff66ff] font-bold mb-1">NAV</div>
+              <div class="text-[10px] text-[#66ffff]/50">导航</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Game area */}
+        <div class="h-64 md:h-80 bg-[#0a0a0f] border-2 border-[#66ffff]/30 relative overflow-hidden">
+          {/* Game background elements */}
+          <div class="absolute top-10 left-10 w-8 h-8 bg-[#ff66ff]/20 animate-pulse"></div>
+          <div class="absolute top-20 right-20 w-12 h-12 bg-[#66ffff]/20 animate-pulse" style="animation-delay: 1s;"></div>
+          <div class="absolute bottom-10 left-1/2 w-16 h-16 bg-[#ffff66]/20 animate-pulse" style="animation-delay: 2s;"></div>
+          
+          {/* Game instructions overlay */}
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-[#66ffff] text-xs mb-2 animate-pulse">
+                [CLICK PIXEL CHARACTER TO INTERACT]
+              </div>
+              <div class="text-[#ff66ff] text-xs">
+                点击左下角像素角色进行互动
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- System info section -->
+  <section class="py-16 md:py-24 border-t-2 border-[#66ffff]/20">
+    <div class="container mx-auto max-w-6xl px-4">
+      <div class="bg-[#111118] border-2 border-[#66ffff]/30 p-6 md:p-8">
+        <div class="flex items-center gap-2 mb-6">
+          <span class="text-[#66ffff]">⚙</span>
+          <span class="text-xs text-[#66ffff]">$ system_info --verbose</span>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="space-y-2">
+            <div class="text-xs text-[#ff66ff]">[HARDWARE]</div>
+            <div class="text-xs text-[#66ffff]/70 space-y-1">
+              <div>CPU: BRAIN_NEURAL_NET</div>
+              <div>RAM: CREATIVITY_OVERFLOW</div>
+              <div>GPU: IMAGINATION_ENGINE</div>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="text-xs text-[#ffff66]">[SOFTWARE]</div>
+            <div class="text-xs text-[#66ffff]/70 space-y-1">
+              <div>OS: LINUX_OF_LIFE</div>
+              <div>IDE: VS_CODE_REALITY</div>
+              <div>DB: MEMORY_DATABASE</div>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="text-xs text-[#66ff66]">[NETWORK]</div>
+            <div class="text-xs text-[#66ffff]/70 space-y-1">
+              <div>STATUS: CONNECTED</div>
+              <div>LATENCY: MINIMAL</div>
+              <div>UPTIME: 24/7/365</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 md:py-24 border-t-2 border-[#66ffff]/20">
+    <div class="container mx-auto max-w-4xl px-4 text-center">
+      <div>
+        <h2 class="text-xl md:text-2xl font-bold mb-4 text-[#ff66ff]">
+          [INITIATE_CONTACT_PROTOCOL]
+        </h2>
+        <p class="text-xs text-[#66ffff]/50 mb-8">
+          $ echo "Ready for collaboration opportunities..."
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/about">
+            <button class="retro-btn text-[#ff66ff] border-[#ff66ff] hover:bg-[#ff66ff]/10">
+              [SEND_SIGNAL]
+            </button>
+          </a>
+          <button class="retro-btn text-[#66ffff] border-[#66ffff] hover:bg-[#66ffff]/10">
+            [DOWNLOAD_CV]
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Pixel character interaction
+    const pixelChar = document.getElementById('pixel-char');
+    let jumpCount = 0;
+    
+    pixelChar?.addEventListener('click', () => {
+      jumpCount++;
+      pixelChar.style.transform = 'translateX(-50%) translateY(-20px)';
+      setTimeout(() => {
+        pixelChar.style.transform = 'translateX(-50%) translateY(0)';
+      }, 200);
+      
+      // Create floating text
+      const text = document.createElement('div');
+      text.className = 'fixed bottom-32 left-1/2 -translate-x-1/2 text-[#ff66ff] text-xs z-30 animate-float';
+      text.textContent = `JUMP #${jumpCount}!`;
+      document.body.appendChild(text);
+      
+      setTimeout(() => {
+        text.remove();
+      }, 1000);
+    });
+  </script>
+</Layout>

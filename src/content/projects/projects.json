@@ -1,0 +1,64 @@
+{
+  "projects": [
+    {
+      "id": "solo-blog",
+      "name": "SOLO Blog",
+      "description": "基于 Astro 构建的个人博客系统，支持 Markdown、标签分类、暗色主题",
+      "tags": ["Astro", "TypeScript", "Tailwind"],
+      "status": "active",
+      "github": "https://github.com/username/solo-blog",
+      "demo": "https://solo-blog.vercel.app",
+      "icon": "📝"
+    },
+    {
+      "id": "stock-tracker",
+      "name": "Stock Tracker",
+      "description": "股票追踪与分析工具，实时行情、技术指标、投资组合管理",
+      "tags": ["React", "Node.js", "MongoDB"],
+      "status": "active",
+      "github": "https://github.com/username/stock-tracker",
+      "demo": "https://stock-tracker.vercel.app",
+      "icon": "📈"
+    },
+    {
+      "id": "code-snippets",
+      "name": "Code Snippets",
+      "description": "代码片段管理工具，支持多语言高亮、分类标签、快速搜索",
+      "tags": ["Vue", "Electron", "SQLite"],
+      "status": "completed",
+      "github": "https://github.com/username/code-snippets",
+      "demo": null,
+      "icon": "💻"
+    },
+    {
+      "id": "dev-tools",
+      "name": "Dev Tools CLI",
+      "description": "开发者工具命令行集合，包含常用的开发辅助功能",
+      "tags": ["Node.js", "CLI", "TypeScript"],
+      "status": "active",
+      "github": "https://github.com/username/dev-tools",
+      "demo": null,
+      "icon": "🛠️"
+    },
+    {
+      "id": "weather-widget",
+      "name": "Weather Widget",
+      "description": "精美的天气小组件，支持多城市、实时更新、桌面端应用",
+      "tags": ["React", "Tauri", "Rust"],
+      "status": "completed",
+      "github": "https://github.com/username/weather-widget",
+      "demo": "https://weather-widget.vercel.app",
+      "icon": "🌤️"
+    },
+    {
+      "id": "markdown-editor",
+      "name": "Markdown Editor",
+      "description": "简洁优雅的 Markdown 编辑器，实时预览、导出多种格式",
+      "tags": ["Svelte", "PWA", "IndexedDB"],
+      "status": "active",
+      "github": "https://github.com/username/markdown-editor",
+      "demo": "https://markdown-editor.vercel.app",
+      "icon": "✍️"
+    }
+  ]
+}
