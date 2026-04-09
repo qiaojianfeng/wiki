@@ -10,15 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Debug SSH connection
-        run: |
-          echo "Testing SSH connection..."
-          ssh -v -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i <(echo "${{ secrets.SERVER_SSH_KEY }}") ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "echo 'Connection successful'"
-        env:
-          SERVER_SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
-          SERVER_USER: ${{ secrets.SERVER_USER }}
-          SERVER_HOST: ${{ secrets.SERVER_HOST }}
-    
       - name: Checkout code
         uses: actions/checkout@v4
         
@@ -42,3 +33,4 @@ jobs:
           REMOTE_HOST: ${{ secrets.SERVER_HOST }}
           REMOTE_USER: ${{ secrets.SERVER_USER }}
           TARGET: "/www/wwwroot/q-jf.cn"
+          SSH_ARGS: "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
