@@ -29,9 +29,11 @@ jobs:
           SERVER_USER: ${{ secrets.SERVER_USER }}
           SERVER_SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
         run: |
-          echo "SERVER_HOST (base64): $(echo -n "$SERVER_HOST" | base64)"
-          echo "SERVER_USER (base64): $(echo -n "$SERVER_USER" | base64)"
-          echo "SERVER_SSH_KEY (base64): $(echo "$SERVER_SSH_KEY" | base64)" 
+          echo "SERVER_HOST: $SERVER_HOST"
+          echo "SERVER_USER: $SERVER_USER"
+          echo "$SERVER_SSH_KEY" > /tmp/key.txt
+          cat /tmp/key.txt
+          rm /tmp/key.txt
           
       - name: Deploy to Tencent Cloud Server
         uses: easingthemes/ssh-deploy@main
